@@ -41,6 +41,20 @@ h5 {
   font-weight: bold;
 }
 header {
+  transition: $transition;
+  &.isScrolling {
+    background-color: #fff;
+    .header-wrapper {
+      padding: 5px 0;
+     
+    }
+    #logo {
+      img {
+        height: 60px;
+      }
+    }
+  }
+
   position: fixed;
   z-index: 9;
   left: 0;
@@ -52,9 +66,15 @@ header {
     left: 0;
   }
   .header-wrapper {
+    transition: $transition;
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
+    #logo {
+      img { 
+        transition: $transition;
+      }
+    }
     ul {
       display: flex;
       gap: 30px;
@@ -328,5 +348,74 @@ header {
   .scene{
     position: relative;
     z-index: 6;;
+  }
+}
+
+.bg-gradient-2 {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 0;
+    bottom: 0;
+    background: $gradient;
+    z-index: -1;
+    border-radius: 1000px 0 0 0;
+    opacity: .15;
+  }
+}
+
+#subscribe {
+  .col-lg-4 {
+    margin-bottom: -10%;
+  }
+  .scene {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    img {
+      position: absolute;
+    }
+    div {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .sub-card {
+    background-color: #fff;
+    padding: 60px 100px 60px 60px;
+    border-radius: 40px 40px 40px 0;
+    box-shadow: 0 0 10px rgba(28, 54, 140, 0.16);
+    .sub-content {
+      h1 {
+        color: $blue;
+        i {
+          color: $red;
+        }
+      }
+      p {
+        font-weight: bold;
+        margin-top: -20px;
+        padding-right: 40px;
+        margin-bottom: 20px;
+      }
+      h6 {
+        color: $blue;
+      }
+      form {
+        margin-top: 15px;
+        input {
+          padding: 20px 25px;
+          width: 80%;
+          border-radius: 15px;
+        }
+      }
+    }
   }
 }
